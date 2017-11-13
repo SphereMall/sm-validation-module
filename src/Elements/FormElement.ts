@@ -1,9 +1,13 @@
 import {Validator} from '../Validator';
 
 export class FormElement extends HTMLElement {
-    setValidator(): void {
-        let validator = new Validator(this);
+    private validator: Validator;
 
-        console.log(validator.validate());
+    setValidator(): void {
+        this.validator = new Validator(this);
+    }
+
+    validate() {
+        console.log(this.validator.validate());
     }
 }

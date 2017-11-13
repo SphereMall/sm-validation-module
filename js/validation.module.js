@@ -64,7 +64,7 @@ var ValidationModule =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -74,10 +74,49 @@ var ValidationModule =
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var Guid = /** @class */ (function () {
+    function Guid() {
+    }
+    Guid.get = function () {
+        return this.s4() + this.s4() + '-' + this.s4() + '-' + this.s4() + '-' +
+            this.s4() + '-' + this.s4() + this.s4() + this.s4();
+    };
+    Guid.s4 = function () {
+        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    };
+    return Guid;
+}());
+exports.Guid = Guid;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Guid_1 = __webpack_require__(0);
 var ValidationModule = /** @class */ (function () {
     function ValidationModule() {
+        this.elements = [];
     }
     ValidationModule.prototype.init = function () {
+        var _this = this;
+        var elements = document.body.querySelectorAll("form");
+        Object.keys(elements).forEach(function (key) {
+            var currentElement = elements[+key];
+            var elementIdAttr = currentElement.attributes.getNamedItem('data-validation-element-id');
+            if (elementIdAttr == null) {
+                var elementId = Guid_1.Guid.get();
+                currentElement.setAttribute('data-validation-element-id', elementId);
+                currentElement.setValidator();
+                _this.elements.push(currentElement);
+            }
+        });
+    };
+    ValidationModule.prototype.getElements = function () {
+        return this.elements;
     };
     return ValidationModule;
 }());
