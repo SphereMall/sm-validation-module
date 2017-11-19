@@ -1,13 +1,21 @@
 import {Validator} from '../Validator';
 
-export class FormElement extends HTMLElement {
+export class FormElement {
     private validator: Validator;
+    private form: HTMLFormElement;
+    private formId: string;
 
-    setValidator(): void {
+    constructor(element: HTMLFormElement, elementId: string) {
+        this.form = element;
+        this.formId = elementId;
         this.validator = new Validator(this);
     }
 
-    validate() {
-        console.log(this.validator.validate());
+    getFrom() {
+        return this.form;
+    }
+
+    getFromId() {
+        return this.formId;
     }
 }

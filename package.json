@@ -1,8 +1,9 @@
 {
   "name": "sm-validation-module",
-  "version": "1.0.0",
+  "version": "1.0.12",
   "description": "SphereMall Form Validation Module",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base src/",
     "build": "webpack --config webpack.config.js",

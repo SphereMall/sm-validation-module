@@ -2,17 +2,17 @@ const path = require('path');
 const webpack = require('webpack');
 
 const ROOT = path.resolve( __dirname, 'src' );
-const DESTINATION = path.resolve( __dirname, 'js' );
+const DESTINATION = path.resolve( __dirname, 'dist' );
 
 module.exports = {
     context: ROOT,
 
     entry: {
-        'main': './main.ts'
+        'main': './index.ts'
     },
     
     output: {
-        filename: 'validation.module.js',
+        filename: 'index.js',
         path: DESTINATION,
         libraryTarget: 'var',
         library: 'ValidationModule'

@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
-    "outDir": "./js/",
-    "sourceMap": true,
-    "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es6", "dom"],
-    "allowJs": true
+    "declaration": true,
+    "outDir": "./dist"
   }
 }

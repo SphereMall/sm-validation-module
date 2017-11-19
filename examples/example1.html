@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Example 1</title>
-    </head>
-    <body>
-    <h1>SphereMall From validation module examples</h1>
-    <hr/>
-    <h2>Form 1</h2>
+<head>
+    <meta charset="UTF-8">
+    <title>Example 1</title>
+</head>
+<body>
+<h1>SphereMall From validation module examples</h1>
+<hr/>
+<h2>Form 1</h2>
 
-    <form action="/test/action"
-          method="post">
-        <input type="text" name="name"/>
-        <input type="text" name="surname"/>
-        <input type="submit" value="submit" name="submit">
-    </form>
+<form name="submitForm"
+      id="submitForm">
+    <input type="text" name="name"
+           data-validation-sm="required"/>
+    <input type="text" name="surname"
+           data-validation-sm="required"/>
+    <input type="text" name="email"
+           data-validation-sm="required|email"/>
+    <input type="submit" value="submit" name="submit"
+           id="submitBtn">
+</form>
 
-    <script src="../js/validation.module.js"></script>
-    </body>
+<form>
+    <input type="text" name="name"/>
+    <input type="text" name="surname"
+           data-validation-sm="required"/>
+    <input type="submit" value="submit" name="submit">
+</form>
+
+<script src="../dist/index.js"></script>
+</body>
+<script type="text/javascript">
+    ValidationModule.instance.init();
+</script>
 </html>
